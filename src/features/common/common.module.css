@@ -3,6 +3,7 @@
   flex-flow: column;
   align-items: flex-start;
 }
+
 .button {
   appearance: none;
   background: none;
@@ -18,14 +19,6 @@
   cursor: pointer;
   background-color: rgba(112, 76, 182, 0.1);
   transition: all 0.15s;
-}
-
-.textbox {
-  font-size: 32px;
-  padding: 2px;
-  width: 64px;
-  text-align: center;
-  margin-right: 4px;
 }
 
 .button:hover,
@@ -57,4 +50,5 @@
   border: 1px solid #bdbdbd;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 12px;
 }

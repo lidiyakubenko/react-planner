@@ -8,7 +8,8 @@ import {
   selectError,
   getTodoListAsync
 } from "./todoSlice";
-import styles from './TodoList.module.css'
+
+import commonStyles from '../common/common.module.css'
 
 export function TodoList() {
   const dispatch = useAppDispatch()
@@ -33,10 +34,10 @@ export function TodoList() {
   }, [name])
 
   return (
-    <div className={styles.container}>
+    <div className={commonStyles.container}>
       <h2>Todo list</h2>
       <button
-        className={styles.button}
+        className={commonStyles.button}
         onClick={() => dispatch(getTodoListAsync())}
         disabled={status === 'loading'}>
         update list
@@ -44,14 +45,14 @@ export function TodoList() {
       <ul>{
         status === 'idle' ? todoList.map(item => (
           <li key={item.id}>{item.name}
-            <button className={styles.button} onClick={() => dispatch(removeTodo(item.id))}>remove</button>
+            <button className={commonStyles.button} onClick={() => dispatch(removeTodo(item.id))}>remove</button>
           </li>
-        )) : status === 'loading' ? <div>loading...</div> : <div className={styles.error}>{error}</div>
+        )) : status === 'loading' ? <div>loading...</div> : <div className={commonStyles.error}>{error}</div>
       }
       </ul>
 
-      <input className={styles.input} type="text" value={name} onChange={event => setName(event.target.value)}/>
-      <div className={styles.error}>{inputError}</div>
-      <button onClick={onClickAddTodoBtn} className={styles.button}>add todo</button>
+      <input className={commonStyles.input} type="text" value={name} onChange={event => setName(event.target.value)}/>
+      <div className={commonStyles.error}>{inputError}</div>
+      <button onClick={onClickAddTodoBtn} className={commonStyles.button}>add todo</button>
     </div>)
 }
