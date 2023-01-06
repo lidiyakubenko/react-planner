@@ -2,7 +2,7 @@ import {createId, Task} from "./plannerSlice";
 
 let count = 0
 
-export const fetchTaskList = (): Promise<{data: Task[]}> => {
+export const fetchTaskList = () => {
   return new Promise<{ data: Task[] }>((resolve, reject) => {
     count++
     setTimeout(() => {

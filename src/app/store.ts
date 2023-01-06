@@ -1,15 +1,19 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import todoReducer from '../features/todo/todoSlice'
-import plannerReducer from '../features/planner/plannerSlice'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from '../app/saga'
+
+// slices
+import todoReducer from '../features/todo/todoSlice'
+import plannerReducer from '../features/planner/plannerSlice'
+import randomContentReducer from '../features/random-content/randomContentSlice'
 
 const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: {
     todo: todoReducer,
-    planner: plannerReducer
+    planner: plannerReducer,
+    randomContent: randomContentReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
